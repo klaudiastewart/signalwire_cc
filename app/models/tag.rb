@@ -5,9 +5,8 @@ class Tag < ApplicationRecord
     if tags
       downcase_tags = []
       tags.each do |tag|
-          downcase_tags << tag.downcase
+        downcase_tags << tag.downcase
       end
-
       downcase_tags.uniq
     end
   end
@@ -17,7 +16,6 @@ class Tag < ApplicationRecord
       unique_tags.map do |name|
         tag_instance = Tag.find_by(tag_name: name)
         if tag_instance
-          byebug
           counter = tag_instance.count
           tag_instance.update(count: counter + 1)
         else
